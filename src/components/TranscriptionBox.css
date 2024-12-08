@@ -1,0 +1,51 @@
+.transcription-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 10px auto;
+  padding: 0 20px;
+}
+
+.transcription-box {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  border: 1px solid #e0e0e0;
+}
+
+.transcription-box:hover {
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.transcription-text {
+  color: #2c3e50;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.placeholder-text {
+  color: #94a3b8;
+  font-size: 1.1rem;
+  text-align: center;
+  font-style: italic;
+}
+
+.transcription-stats {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 5px;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.word-count,
+.duration {
+  font-family: monospace;
+}
