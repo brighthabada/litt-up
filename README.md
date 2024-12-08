@@ -1,9 +1,4 @@
-# React + Vite
+🗣️ Litt-Up – AI-Powered Audio Journal App
+Litt-Up is an AI-powered audio journal app inspired by Louis Litt from Suits. Just like Louis used his recorder for therapy, Litt-Up lets you record your thoughts, reflect, and gain AI-driven insights to better understand yourself.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-"# litt-up" 
+This project uses React with Vite for the frontend, Spring Boot for the backend, and Python (OpenAI API) for AI processing.
