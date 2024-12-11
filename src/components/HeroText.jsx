@@ -4,7 +4,7 @@ import "./HeroText.css";
 const HeroText = () => {
   return (
     <div className="hero-text">
-      <h2>Test us out</h2>
+      <h2>Louis' dictaphone</h2>
       <p>
         Littup is a super smart voice journal that captures, organizes and
         analyzes life's moments.
