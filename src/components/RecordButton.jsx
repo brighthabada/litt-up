@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./RecordButton.css";
 
 const RecordButton = () => {
   const [isRecording, setIsRecording] = useState(false);
   const [timer, setTimer] = useState(0);
+  const mediaRecorder = useRef(null);
+  const audioChunks = useRef([]);
 
   useEffect(() => {
     let interval;
@@ -17,8 +19,47 @@ const RecordButton = () => {
     return () => clearInterval(interval);
   }, [isRecording]);
 
+  const startRecording = async () => {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      mediaRecorder.current = new MediaRecorder(stream);
+      audioChunks.current = [];
+
+      mediaRecorder.current.ondataavailable = (event) => {
+        audioChunks.current.push(event.data);
+      };
+
+      mediaRecorder.current.onstop = () => {
+        const audioBlob = new Blob(audioChunks.current, { type: "audio/wav" });
+        // Here you can either:
+        // 1. Create an audio URL to play it back
+        const audioUrl = URL.createObjectURL(audioBlob);
+        console.log("Recording finished, audio URL:", audioUrl);
+        // 2. Send it to your server
+        // await sendAudioToServer(audioBlob);
+      };
+
+      mediaRecorder.current.start();
+      setIsRecording(true);
+    } catch (error) {
+      console.error("Error accessing microphone:", error);
+    }
+  };
+
+  const stopRecording = () => {
+    if (mediaRecorder.current && mediaRecorder.current.state !== "inactive") {
+      mediaRecorder.current.stop();
+      mediaRecorder.current.stream.getTracks().forEach((track) => track.stop());
+      setIsRecording(false);
+    }
+  };
+
   const toggleRecording = () => {
-    setIsRecording(!isRecording);
+    if (isRecording) {
+      stopRecording();
+    } else {
+      startRecording();
+    }
   };
 
   const formatTime = (seconds) => {
