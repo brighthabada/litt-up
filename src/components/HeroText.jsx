@@ -5,7 +5,10 @@ const HeroText = () => {
   return (
     <div className="hero-text">
       <h2>Louis' dictaphone</h2>
-      <p>Your smart easy to use voice journal inspired by Louis Litt</p>
+      <p>
+        Your smart, easy to use voice journal.{" "}
+        <span className="inspired-text">Inspired by Louis Litt</span>
+      </p>
     </div>
   );
 };

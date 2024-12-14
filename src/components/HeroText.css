@@ -10,6 +10,8 @@
   margin-bottom: 20px;
   color: #ffffff;
   font-weight: 700;
+  -webkit-text-stroke: 1px #333333;
+  text-stroke: 1px #333333;
 }
 
 .hero-text p {
@@ -19,6 +21,6 @@
   margin: 0;
 }
 
-span {
+.inspired-text {
   color: #ffffff;
 }
